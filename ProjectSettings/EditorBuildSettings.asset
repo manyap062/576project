@@ -4,5 +4,29 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Intro.unity
+    guid: 85c3de7b325136047822bd81a20ebee5
+  - enabled: 1
+    path: Assets/Scenes/Lobby.unity
+    guid: 361e5127e4a854f4bacec4f062d321d8
+  - enabled: 1
+    path: Assets/Scenes/Attic.unity
+    guid: 5ce077a67cbf1d64c8cd6dc29c217c29
+  - enabled: 1
+    path: Assets/Scenes/Arcade.unity
+    guid: 0b6f9a07b402a58428a66161853156d7
+  - enabled: 1
+    path: Assets/Scenes/Treasure Room.unity
+    guid: 86a5ea43f5ab16e4f8dce9774c4011d3
+  - enabled: 1
+    path: Assets/Scenes/Library.unity
+    guid: cd8fdfbe3fdf9f748b10bc21f0e0d360
+  - enabled: 1
+    path: Assets/Scenes/Astronomy Room.unity
+    guid: 0e90bc1b1d6ddbc46859d46f8543e786
+  - enabled: 1
+    path: Assets/Scenes/Greenhouse.unity
+    guid: 0b23595fb8f229143a5c78e5e2f4d18a
   m_configObjects: {}
