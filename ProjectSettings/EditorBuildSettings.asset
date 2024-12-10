@@ -21,12 +21,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Treasure Room.unity
     guid: 86a5ea43f5ab16e4f8dce9774c4011d3
   - enabled: 1
-    path: Assets/Scenes/Library.unity
+    path: Assets/Scenes/Garden.unity
     guid: cd8fdfbe3fdf9f748b10bc21f0e0d360
   - enabled: 1
     path: Assets/Scenes/Astronomy Room.unity
     guid: 0e90bc1b1d6ddbc46859d46f8543e786
   - enabled: 1
-    path: Assets/Scenes/Greenhouse.unity
+    path: Assets/Scenes/Library.unity
     guid: 0b23595fb8f229143a5c78e5e2f4d18a
   m_configObjects: {}
