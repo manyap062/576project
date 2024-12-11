@@ -87,18 +87,23 @@ public class GameManager : MonoBehaviour
     {
         if(!isGameActive) return;
 
-        currentTimer -= Time.deltaTime;
-        UpdateUI();
-
-        if (currentTimer <= 0)
+        if (currentTimer > 0)
         {
-            if (isInPreviewPhase)
+            currentTimer -= Time.deltaTime;
+            UpdateUI();
+
+            if (currentTimer <= 0)
             {
-                StartCoroutine(StartGameplayPhase());
-            }
-            else
-            {
-                EndGame(false);
+                currentTimer = 0;  
+                if (isInPreviewPhase)
+                {
+                    StartCoroutine(StartGameplayPhaseCoroutine());  
+                    isGameActive = false;
+                }
+                else
+                {
+                    EndGame(false);
+                }
             }
         }
     }
@@ -110,16 +115,21 @@ public class GameManager : MonoBehaviour
         if (phaseText) phaseText.text = isInPreviewPhase ? "Memorize the Room!" : "Find the Changes!";
     }
 
-    IEnumerator StartGameplayPhase()
+    IEnumerator StartGameplayPhaseCoroutine()
     {
-        yield return StartCoroutine(screenFader.FadeToBlack());
-
+        if (screenFader != null)
+            yield return StartCoroutine(screenFader.FadeToBlack());
+        
         isInPreviewPhase = false;
         currentTimer = gameplayDuration;
         MakeRandomChanges();
-
-        yield return StartCoroutine(screenFader.FadeFromBlack());
+        UpdateUI();
+        isGameActive = true;
+        
+        if (screenFader != null)
+            yield return StartCoroutine(screenFader.FadeFromBlack());
     }
+
 
     void MakeRandomChanges()
     {

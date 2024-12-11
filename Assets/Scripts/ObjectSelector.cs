@@ -19,6 +19,7 @@ public class ObjectSelector : MonoBehaviour
     {
         if (gameManager.isInPreviewPhase)
         {
+            Debug.Log("Still in preview phase");
             RemoveHighlight();
             return;
         }
@@ -28,7 +29,9 @@ public class ObjectSelector : MonoBehaviour
 
         if (Physics.Raycast(ray, out hit))
         {
+            Debug.Log("Hit object: " + hit.collider.gameObject.name);
             bool isInteractable = gameManager.IsInteractable(hit.collider.gameObject);
+            Debug.Log("Is interactable: " + isInteractable);
 
             if (isInteractable && currentHighlightedObject != hit.collider.gameObject)
             {
