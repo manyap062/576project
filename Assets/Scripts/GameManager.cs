@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI livesText;
     public TMPro.TextMeshProUGUI phaseText;
 
-    private bool isInPreviewPhase = true;
+    public bool isInPreviewPhase = true;
     private int currentLives;
     private float currentTimer;
     private int changesFound = 0;
     private List<ObjectChange> activeChanges = new List<ObjectChange>(); 
     private bool isGameActive = false;
+    public ScreenFader screenFader;
 
     private class ObjectChange
     {
@@ -93,7 +94,7 @@ public class GameManager : MonoBehaviour
         {
             if (isInPreviewPhase)
             {
-                StartGameplayPhase();
+                StartCoroutine(StartGameplayPhase());
             }
             else
             {
@@ -109,11 +110,15 @@ public class GameManager : MonoBehaviour
         if (phaseText) phaseText.text = isInPreviewPhase ? "Memorize the Room!" : "Find the Changes!";
     }
 
-    void StartGameplayPhase()
+    IEnumerator StartGameplayPhase()
     {
+        yield return StartCoroutine(screenFader.FadeToBlack());
+
         isInPreviewPhase = false;
         currentTimer = gameplayDuration;
         MakeRandomChanges();
+
+        yield return StartCoroutine(screenFader.FadeFromBlack());
     }
 
     void MakeRandomChanges()
@@ -295,4 +300,14 @@ public class GameManager : MonoBehaviour
         else
             Debug.Log("Game Over!");
     }
+
+    public bool IsInteractable(GameObject obj)
+{
+    foreach (var roomObj in roomObjects)
+    {
+        if (roomObj.gameObject == obj)
+            return true;
+    }
+    return false;
+}
 }
