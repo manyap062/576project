@@ -1969,6 +1969,7 @@ MonoBehaviour:
   livesText: {fileID: 442067010}
   phaseText: {fileID: 1072807916}
   isInPreviewPhase: 1
+  isGameActive: 0
   screenFader: {fileID: 1086431406}
 --- !u!4 &679115893
 Transform:
@@ -2720,6 +2721,7 @@ GameObject:
   - component: {fileID: 1191319835}
   - component: {fileID: 1191319834}
   - component: {fileID: 1191319833}
+  - component: {fileID: 1191319837}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2789,6 +2791,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1191319837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191319832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7ab496651fcb421e9cc94905d8dca3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 679115892}
+  highlightMaterial: {fileID: 2100000, guid: cee3082beb36d429d934f112d653fab2, type: 2}
+  mainCamera: {fileID: 1928988755}
 --- !u!1001 &1340940029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3494,13 +3511,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1928988752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7ab496651fcb421e9cc94905d8dca3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 679115892}
   highlightMaterial: {fileID: 2100000, guid: cee3082beb36d429d934f112d653fab2, type: 2}
+  mainCamera: {fileID: 0}
 --- !u!1 &1963339863
 GameObject:
   m_ObjectHideFlags: 0

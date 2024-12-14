@@ -4,15 +4,15 @@ public class ObjectSelector : MonoBehaviour
 {
     public GameManager gameManager;
     public Material highlightMaterial; 
-    
-    private Camera mainCamera;
+    public Camera mainCamera;
+
     private GameObject currentHighlightedObject;
     private Material originalMaterial;
     private Renderer currentRenderer;
 
     void Start()
     {
-        mainCamera = Camera.main;
+        //mainCamera = Camera.main;
     }
 
     void Update()
