@@ -20,7 +20,7 @@ public class MenuSystem : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     
     private float previousTimeScale;
-    private bool inPreviewPhase;
+    private bool wasInPreviewPhase;
 
     void Start()
     {
@@ -52,7 +52,7 @@ public class MenuSystem : MonoBehaviour
 
     private void ToggleMenu()
     {
-        if (menuPanel.activeSelf)
+        if (menu.activeSelf)
         {
             ResumeGame();
         }
@@ -66,7 +66,7 @@ public class MenuSystem : MonoBehaviour
     {
         previousTimeScale = Time.timeScale;
         Time.timeScale = 0f;
-        wasInPreviewPhase = gameManager.inPreviewPhase;
+        wasInPreviewPhase = gameManager.isInPreviewPhase;
         gameManager.isGameActive = false;
         menu.SetActive(true);
     }
@@ -84,7 +84,7 @@ public class MenuSystem : MonoBehaviour
         Time.timeScale = 1f;
         menu.SetActive(false);
         instructions.SetActive(false);
-        gameManager.InitializeGame();
+        //gameManager.InitializeGame();
     }
 
     private void ShowInstructions()

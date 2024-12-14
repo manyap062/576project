@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     private float currentTimer;
     private int changesFound = 0;
     private List<ObjectChange> activeChanges = new List<ObjectChange>(); 
-    private bool isGameActive = false;
+    public bool isGameActive = false;
     public ScreenFader screenFader;
 
     private class ObjectChange
