@@ -28,7 +28,7 @@ public class GameManager : MonoBehaviour
     private AudioSource audioSource;
 
     public GameObject cat;
-    public NavMeshAgent cat_agent;
+    public UnityEngine.AI.NavMeshAgent cat_agent;
     public bool cat_is_walking = false;
 
     public bool isInPreviewPhase = true;

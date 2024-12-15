@@ -2000,6 +2000,10 @@ MonoBehaviour:
   timerText: {fileID: 432790402}
   livesText: {fileID: 442067010}
   phaseText: {fileID: 1072807916}
+  gameWinClip: {fileID: 0}
+  guessCorrectClip: {fileID: 0}
+  guessIncorrectClip: {fileID: 0}
+  gameLoseClip: {fileID: 0}
   cat: {fileID: 813219522}
   cat_agent: {fileID: 813219523}
   cat_is_walking: 0
@@ -3475,13 +3479,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0
+  m_Height: 1.4
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!4 &1770233353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 94f49cf11f1ccfd45b2a9ab380e4afd3, type: 3}
