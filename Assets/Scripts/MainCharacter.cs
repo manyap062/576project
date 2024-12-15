@@ -11,16 +11,16 @@ public class MainCharacter : MonoBehaviour {
     public float velocity;
 
     // Condition Boolean Values
-    public bool has_won;                // TODO: Implement later
-    public bool has_lost;               // TODO: Implement later
-    public bool recently_hit;           // TODO: Implement later
+    public bool has_won;                // TODO: Value needs to be updated in game manager logic
+    public bool has_lost;               // TODO: Value needs to be updated in game manager logic
+    public bool recently_hit;           // TODO: Value needs to be updated in grandma logic
 
     // Start
     void Start() {
         animation_controller = GetComponent<Animator>();
         character_controller = GetComponent<CharacterController>();
         movement_direction = new Vector3(0.0f, 0.0f, 0.0f);
-        max_velocity = 1.5f;
+        max_velocity = 2f;
         velocity = 0.0f;
 
         has_won = false;
@@ -86,7 +86,7 @@ public class MainCharacter : MonoBehaviour {
 
         if (transform.position.y > 0.0f) { 
             Vector3 lower_character = movement_direction * velocity * Time.deltaTime;
-            lower_character.y = -100f; 
+            lower_character.y = -10f; 
             character_controller.Move(lower_character);
         }
 
