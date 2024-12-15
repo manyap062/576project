@@ -84,7 +84,12 @@ public class MainCharacter : MonoBehaviour {
         float zdirection = Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.y);
         movement_direction = new Vector3(xdirection, 0.0f, zdirection);
 
-        character_controller.Move(movement_direction * velocity * Time.deltaTime);
-        
+        if (transform.position.y > 0.0f) { 
+            Vector3 lower_character = movement_direction * velocity * Time.deltaTime;
+            lower_character.y = -100f; 
+            character_controller.Move(lower_character);
+        }
+
+        else { character_controller.Move(movement_direction * velocity * Time.deltaTime); }  
     }
 }

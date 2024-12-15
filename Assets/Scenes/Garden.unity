@@ -2824,14 +2824,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc7f3e87cd861a4c98e68187eb10759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  highlightColor:
-    r: 1
-    g: 1
-    b: 1
-    a: 1
-  outlineWidth: 5
-  highlightTag: Guessable
-  lastHighlighted: {fileID: 0}
 --- !u!114 &1191319839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2846,6 +2838,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameManager: {fileID: 679115892}
   mainCamera: {fileID: 1928988755}
+  lol: 0
   highlightColor: {r: 1, g: 1, b: 1, a: 1}
   outlineWidth: 5
   highlightTag: Guessable
@@ -3291,13 +3284,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0
+  m_Height: 1.4
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Center: {x: 0, y: 0.7, z: 0}
 --- !u!4 &1770233353 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 94f49cf11f1ccfd45b2a9ab380e4afd3, type: 3}
