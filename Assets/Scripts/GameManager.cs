@@ -27,6 +27,10 @@ public class GameManager : MonoBehaviour
 
     private AudioSource audioSource;
 
+    public GameObject cat;
+    public NavMeshAgent cat_agent;
+    public bool cat_is_walking = false;
+
     public bool isInPreviewPhase = true;
     private int currentLives;
     private float currentTimer;
@@ -350,4 +354,29 @@ public class GameManager : MonoBehaviour
     }
     return false;
 }
+
+
+    void Cat()
+    {
+        Vector3 target = new Vector3();
+        foreach (var change in activeChanges)
+        {
+            Debug.Log(change.changedObject.transform.position);
+            Debug.Log(cat.transform.position);
+            target = change.changedObject.transform.position;
+        }
+
+        cat_agent.SetDestination(target);
+        if (cat.transform.position != target)
+        {
+            cat_agent.SetDestination(target);
+            cat_is_walking = true;
+        }
+        else
+        {
+            cat_is_walking = false;
+        }
+
+    }
+
 }
