@@ -1968,6 +1968,10 @@ MonoBehaviour:
   timerText: {fileID: 432790402}
   livesText: {fileID: 442067010}
   phaseText: {fileID: 1072807916}
+  gameWinClip: {fileID: 8300000, guid: db14e2acd27a3634ab76f47cdd06e0f1, type: 3}
+  guessCorrectClip: {fileID: 8300000, guid: be0b51799ae2ee344a1ac42c06a65ebd, type: 3}
+  guessIncorrectClip: {fileID: 8300000, guid: 0e609036038cb6a409f922a3324f4f60, type: 3}
+  gameLoseClip: {fileID: 8300000, guid: 3dc0b8e0c6f162d4b8d51bef0619b3dd, type: 3}
   isInPreviewPhase: 1
   isGameActive: 0
   screenFader: {fileID: 1086431406}
@@ -2722,6 +2726,8 @@ GameObject:
   - component: {fileID: 1191319834}
   - component: {fileID: 1191319833}
   - component: {fileID: 1191319837}
+  - component: {fileID: 1191319838}
+  - component: {fileID: 1191319839}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2806,6 +2812,43 @@ MonoBehaviour:
   gameManager: {fileID: 679115892}
   highlightMaterial: {fileID: 2100000, guid: cee3082beb36d429d934f112d653fab2, type: 2}
   mainCamera: {fileID: 1928988755}
+--- !u!114 &1191319838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191319832}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdc7f3e87cd861a4c98e68187eb10759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highlightColor:
+    r: 1
+    g: 1
+    b: 1
+    a: 1
+  outlineWidth: 5
+  highlightTag: Guessable
+  lastHighlighted: {fileID: 0}
+--- !u!114 &1191319839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191319832}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c3bb65b63ed02a47a310c916433cd18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameManager: {fileID: 679115892}
+  mainCamera: {fileID: 1928988755}
+  highlightColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 5
+  highlightTag: Guessable
 --- !u!1001 &1340940029
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,9 +1,8 @@
-using UnityEngine;
-using System.Collections.Generic;
-using UnityEngine.Events;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class Arcade_GameM : MonoBehaviour
 {
     [Header("Game Settings")]
     public float previewDuration = 60f;
@@ -31,7 +30,7 @@ public class GameManager : MonoBehaviour
     private int currentLives;
     private float currentTimer;
     private int changesFound = 0;
-    private List<ObjectChange> activeChanges = new List<ObjectChange>(); 
+    private List<ObjectChange> activeChanges = new List<ObjectChange>();
     public bool isGameActive = false;
     public ScreenFader screenFader;
 
@@ -46,32 +45,22 @@ public class GameManager : MonoBehaviour
 
     private enum ChangeType
     {
-        Position,
         Rotation,
         Scale,
-        //Color,
         Material,
-        Visibility,
-        //Amount
     }
 
     [System.Serializable]
     public class RoomObject
     {
-        public GameObject gameObject;  
-        public bool canMove;          
-        public bool canRotate;        
-        public bool canScale;         
-        //public bool canChangeColor;   
+        public GameObject gameObject;
+        public bool canRotate;
+        public bool canScale;
         public bool canChangeMaterial;
-        public bool canHide;          
-        //public bool canDuplicate;
-        
-        public Vector3 maxMoveDistance = new Vector3(5,5,5);  
-        public Vector3 maxRotation = new Vector3(90,90,90);   
-        public Vector3 maxScale = new Vector3(3,3,3);            
-        public Material[] possibleMaterials;                  
-        //public Color[] possibleColors;                       
+
+        public Vector3 maxRotation = new Vector3(90, 90, 90);
+        public Vector3 maxScale = new Vector3(3, 3, 3);
+        public Material[] possibleMaterials;
     }
 
     void Start()
@@ -92,13 +81,13 @@ public class GameManager : MonoBehaviour
         changesFound = 0;
         isGameActive = true;
         activeChanges.Clear();
-        
+
         UpdateUI();
     }
 
     void Update()
     {
-        if(!isGameActive) return;
+        if (!isGameActive) return;
 
         if (currentTimer > 0)
         {
@@ -107,10 +96,10 @@ public class GameManager : MonoBehaviour
 
             if (currentTimer <= 0)
             {
-                currentTimer = 0;  
+                currentTimer = 0;
                 if (isInPreviewPhase)
                 {
-                    StartCoroutine(StartGameplayPhaseCoroutine());  
+                    StartCoroutine(StartGameplayPhaseCoroutine());
                     isGameActive = false;
                 }
                 else
@@ -132,13 +121,13 @@ public class GameManager : MonoBehaviour
     {
         if (screenFader != null)
             yield return StartCoroutine(screenFader.FadeToBlack());
-        
+
         isInPreviewPhase = false;
         currentTimer = gameplayDuration;
         MakeRandomChanges();
         UpdateUI();
         isGameActive = true;
-        
+
         if (screenFader != null)
             yield return StartCoroutine(screenFader.FadeFromBlack());
     }
@@ -147,14 +136,13 @@ public class GameManager : MonoBehaviour
     void MakeRandomChanges()
     {
         List<RoomObject> availableObjects = new List<RoomObject>(roomObjects); //list of possible objects to change
-        
         for (int i = 0; i < numberOfChangesToMake; i++)
         {
+
             if (availableObjects.Count == 0) break;
 
             int objectIndex = Random.Range(0, availableObjects.Count);
             RoomObject selectedObject = availableObjects[objectIndex];
-
             MakeRandomChange(selectedObject);
 
             availableObjects.RemoveAt(objectIndex); //remove changed object so doesn't change again
@@ -164,16 +152,13 @@ public class GameManager : MonoBehaviour
     void MakeRandomChange(RoomObject roomObject)
     {
         List<ChangeType> possibleChanges = new List<ChangeType>();
-        
-        if (roomObject.canMove) possibleChanges.Add(ChangeType.Position);
+
         if (roomObject.canRotate) possibleChanges.Add(ChangeType.Rotation);
         if (roomObject.canScale) possibleChanges.Add(ChangeType.Scale);
-        //if (roomObject.canChangeColor) possibleChanges.Add(ChangeType.Color);
         if (roomObject.canChangeMaterial) possibleChanges.Add(ChangeType.Material);
-        if (roomObject.canHide) possibleChanges.Add(ChangeType.Visibility);
 
         ChangeType changeType = possibleChanges[Random.Range(0, possibleChanges.Count)];
-        
+        Debug.Log(changeType);
         ObjectChange change = new ObjectChange();
         change.changedObject = roomObject.gameObject;
         change.changeType = changeType;
@@ -181,31 +166,6 @@ public class GameManager : MonoBehaviour
         //make change selected
         switch (changeType)
         {
-            case ChangeType.Position:
-                Vector3 newPos = roomObject.gameObject.transform.position + new Vector3(
-                    Random.Range(-roomObject.maxMoveDistance.x, roomObject.maxMoveDistance.x),
-                    Random.Range(-roomObject.maxMoveDistance.y, roomObject.maxMoveDistance.y),
-                    Random.Range(-roomObject.maxMoveDistance.z, roomObject.maxMoveDistance.z)
-                );
-                change.originalValue = roomObject.gameObject.transform.position;
-                change.newValue = newPos;
-                roomObject.gameObject.transform.position = newPos;
-                break;
-
-            // case ChangeType.Color:
-            //     if (roomObject.possibleColors.Length > 0)
-            //     {
-            //         Renderer renderer = roomObject.gameObject.GetComponent<Renderer>();
-            //         if (renderer != null)
-            //         {
-            //             change.originalValue = renderer.material.color;
-            //             Color newColor = roomObject.possibleColors[Random.Range(0, roomObject.possibleColors.Length)];
-            //             change.newValue = newColor;
-            //             renderer.material.color = newColor;
-            //         }
-            //     }
-            //     break;
-
             case ChangeType.Rotation:
                 Vector3 newRotation = new Vector3(
                     Random.Range(-roomObject.maxRotation.x, roomObject.maxRotation.x),
@@ -227,26 +187,35 @@ public class GameManager : MonoBehaviour
                 change.newValue = newScale;
                 roomObject.gameObject.transform.localScale = newScale;
                 break;
-            
-            case ChangeType.Visibility:
-                change.originalValue = roomObject.gameObject.activeSelf;
-                change.newValue = false;
-                roomObject.gameObject.SetActive(false);
-                break;
 
             case ChangeType.Material:
-                if (roomObject.possibleMaterials.Length > 0)
+                if (roomObject.possibleMaterials.Length == 2) // Ensure exactly two variations are defined
                 {
                     Renderer renderer = roomObject.gameObject.GetComponent<Renderer>();
                     if (renderer != null)
                     {
-                        change.originalValue = renderer.material;
-                        Material newMaterial = roomObject.possibleMaterials[Random.Range(0, roomObject.possibleMaterials.Length)];
+                        // Use sharedMaterial to avoid instance-related issues
+                        Material currentMaterial = renderer.sharedMaterial;
+                        Debug.Log($"Current Material (Shared): {currentMaterial.name}"); // Log the current material name
+
+                        change.originalValue = currentMaterial;
+
+                        // Compare using references, not instances
+                        Material newMaterial = roomObject.possibleMaterials[0] == currentMaterial
+                            ? roomObject.possibleMaterials[1]
+                            : roomObject.possibleMaterials[0];
+
+                        Debug.Log($"Changed to New Material: {newMaterial.name}"); // Log the new material name
+
                         change.newValue = newMaterial;
+
+                        // Apply the new material
                         renderer.material = newMaterial;
                     }
                 }
                 break;
+
+
         }
 
         activeChanges.Add(change);
@@ -256,48 +225,30 @@ public class GameManager : MonoBehaviour
     {
         if (isInPreviewPhase) return;
         ObjectChange change = activeChanges.Find(x => x.changedObject == clickedObject);
-        
+
         if (change != null) //correct guess
         {
+
+            switch (change.changeType)
+            {
+                case ChangeType.Rotation:
+                    clickedObject.transform.rotation = (Quaternion)change.originalValue;
+                    break;
+
+                case ChangeType.Scale:
+                    clickedObject.transform.localScale = (Vector3)change.originalValue;
+                    break;
+
+                case ChangeType.Material:
+                    Renderer renderer = clickedObject.GetComponent<Renderer>();
+                    if (renderer != null)
+                    {
+                        renderer.material = (Material)change.originalValue;
+                    }
+                    break;
+            }
             changesFound++;
             activeChanges.Remove(change);
-            
-            // switch (change.changeType)
-            // {
-            //     case ChangeType.Position:
-            //         clickedObject.transform.position = (Vector3)change.originalValue;
-            //         break;
-
-            //     case ChangeType.Color:
-            //         Renderer renderer = clickedObject.GetComponent<Renderer>();
-            //         if (renderer != null)
-            //             renderer.material.color = (Color)change.originalValue;
-            //         break;
-
-            //     case ChangeType.Visibility:
-            //         clickedObject.SetActive((bool)change.originalValue);
-            //         break;
-
-            //     case ChangeType.Material:
-            //         if (roomObject.possibleMaterials.Length > 0)
-            //         {
-            //             Renderer renderer = roomObject.gameObject.GetComponent<Renderer>();
-            //             if (renderer != null)
-            //             {
-            //                 change.originalValue = renderer.material;
-            //                 Material newMaterial = roomObject.possibleMaterials[Random.Range(0, roomObject.possibleMaterials.Length)];
-            //                 change.newValue = newMaterial;
-            //                 renderer.material = newMaterial;
-            //             }
-            //         }
-            //         break;
-
-            //     case ChangeType.Visibility:
-            //         change.originalValue = roomObject.gameObject.activeSelf;
-            //         change.newValue = false;
-            //         roomObject.gameObject.SetActive(false);
-            //         break;
-            //     }
 
             if (changesFound >= numberOfChangesToMake)
             {
@@ -311,6 +262,7 @@ public class GameManager : MonoBehaviour
         else //wrong guess
         {
             currentLives--;
+
             if (currentLives <= 0)
             {
                 EndGame(false);
@@ -320,7 +272,7 @@ public class GameManager : MonoBehaviour
                 PlaySound(guessIncorrectClip);
             }
         }
-        
+
         UpdateUI();
     }
 
@@ -342,12 +294,12 @@ public class GameManager : MonoBehaviour
     }
 
     public bool IsInteractable(GameObject obj)
-{
-    foreach (var roomObj in roomObjects)
     {
-        if (roomObj.gameObject == obj)
-            return true;
+        foreach (var roomObj in roomObjects)
+        {
+            if (roomObj.gameObject == obj)
+                return true;
+        }
+        return false;
     }
-    return false;
-}
 }

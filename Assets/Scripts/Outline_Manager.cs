@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Outline_Manager : MonoBehaviour
 {
+    public GameManager gameManager;
+    public Camera mainCamera;
+    public int lol;
     public Color highlightColor = Color.yellow; // Set the outline color
     public float outlineWidth = 5f; // Set the outline width
     public string highlightTag = "Guessable"; // Tag for highlightable objects
@@ -12,15 +15,22 @@ public class Outline_Manager : MonoBehaviour
 
     void Update()
     {
+        if (gameManager.isInPreviewPhase)
+        {
+            Debug.Log("Still in preview phase");
+            return;
+        }
         // Cast a ray from the mouse position
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(ray, out RaycastHit hit))
         {
             GameObject hitObject = hit.collider.gameObject;
 
             // Check if the object is highlightable
-            if (hitObject.CompareTag(highlightTag))
+            if (gameManager.IsInteractable(hit.collider.gameObject)) // Tagging was used previously but not neccessary
+            //hitObject.CompareTag(highlightTag) ||
             {
+                bool isInteractable = gameManager.IsInteractable(hit.collider.gameObject);
                 Outline outline = hitObject.GetComponent<Outline>();
                 if (outline == null)
                 {
@@ -36,6 +46,11 @@ public class Outline_Manager : MonoBehaviour
                     ClearLastHighlight();
                     outline.enabled = true;
                     lastHighlighted = outline;
+                }
+                if (Input.GetMouseButtonDown(0) && isInteractable)
+                {
+                    // Calls on the game manager for the clicking logic
+                    gameManager.OnObjectClicked(hit.collider.gameObject);
                 }
                 return;
             }
