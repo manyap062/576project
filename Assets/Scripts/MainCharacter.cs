@@ -101,14 +101,14 @@ public class MainCharacter : MonoBehaviour {
         float xdirection = Mathf.Sin(Mathf.Deg2Rad * transform.rotation.eulerAngles.y);
         float zdirection = Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.y);
         movement_direction = new Vector3(xdirection, 0.0f, zdirection);
-        character_controller.Move(movement_direction * velocity * Time.deltaTime);
+        //character_controller.Move(movement_direction * velocity * Time.deltaTime);
 
 
         // Force character to stay on the ground
         //Vector3 position = transform.position;
         //position.y = groundLevel; // Reset y-position to ground level
         //transform.position = position;
-        /*
+        
         if (transform.position.y > 0.0f) { 
             Vector3 lower_character = movement_direction * velocity * Time.deltaTime;
             lower_character.y = -10f; 
@@ -117,6 +117,6 @@ public class MainCharacter : MonoBehaviour {
         
 
         else { character_controller.Move(movement_direction * velocity * Time.deltaTime); }  
-        */
+        
     }
 }
