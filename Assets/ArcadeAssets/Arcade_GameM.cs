@@ -87,7 +87,7 @@ public class Arcade_GameM : MonoBehaviour
         InitializeGame();
     }
 
-    void InitializeGame()
+    public void InitializeGame()
     {
         currentLives = maxLives;
         isInPreviewPhase = true;
