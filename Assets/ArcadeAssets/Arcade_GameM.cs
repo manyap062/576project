@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Arcade_GameM : MonoBehaviour
 {
@@ -17,6 +19,10 @@ public class Arcade_GameM : MonoBehaviour
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI livesText;
     public TMPro.TextMeshProUGUI phaseText;
+    public TMPro.TextMeshProUGUI winText;
+    public TMPro.TextMeshProUGUI loseText;
+    public Button returnLobbyButton;
+    public Button playAgainButton;
 
     [Header("Audio Clips")]
     public AudioClip gameWinClip;
@@ -33,6 +39,10 @@ public class Arcade_GameM : MonoBehaviour
     private List<ObjectChange> activeChanges = new List<ObjectChange>();
     public bool isGameActive = false;
     public ScreenFader screenFader;
+
+
+
+
 
     private class ObjectChange
     {
@@ -70,6 +80,10 @@ public class Arcade_GameM : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+        winText.gameObject.SetActive(false);
+        loseText.gameObject.SetActive(false);
+        returnLobbyButton.gameObject.SetActive(false);
+        playAgainButton.gameObject.SetActive(false);
         InitializeGame();
     }
 
@@ -278,11 +292,29 @@ public class Arcade_GameM : MonoBehaviour
 
     void EndGame(bool won)
     {
+        isGameActive = false;
+        timerText.gameObject.SetActive(false);
+        livesText.gameObject.SetActive(false);
+        phaseText.gameObject.SetActive(false);
         PlaySound(won ? gameWinClip : gameLoseClip);
         if (won)
+        {
+            winText.gameObject.SetActive(true);
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            CompleteLevel(sceneName);
             Debug.Log("You won!");
+        }
         else
+        {
+            loseText.gameObject.SetActive(true);
             Debug.Log("Game Over!");
+        }
+        returnLobbyButton.gameObject.SetActive(true);
+        playAgainButton.gameObject.SetActive(true);
+        returnLobbyButton.onClick.AddListener(GoToLobby);
+        playAgainButton.onClick.AddListener(RestartLevel);
+        //stopCharacter();
     }
 
     void PlaySound(AudioClip clip)
@@ -301,5 +333,46 @@ public class Arcade_GameM : MonoBehaviour
                 return true;
         }
         return false;
+    }
+
+    public void CompleteLevel(string roomName)
+    {
+        PlayerPrefs.SetInt(roomName + "_completed", 1);
+        PlayerPrefs.Save();
+
+        Debug.Log($"Level {roomName} marked as completed!");
+    }
+
+    public void stopCharacter()
+    {
+        GameObject mainCharacter = GameObject.Find("main_char");
+        if (mainCharacter != null)
+        {
+            MainCharacter mainCharacterScript = mainCharacter.GetComponent<MainCharacter>();
+            if (mainCharacterScript != null)
+            {
+                // Set the has_won variable to true
+                mainCharacterScript.has_won = true;
+                Debug.Log($"Character's has_won set to true.");
+            }
+            else
+            {
+                Debug.LogWarning($"MainCharacter script not found.");
+            }
+        }
+        else
+        {
+            Debug.LogError($"Main character with name main_char not found!");
+        }
+    }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToLobby()
+    {
+        SceneManager.LoadScene("Lobby");
     }
 }

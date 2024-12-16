@@ -2,6 +2,8 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -18,6 +20,10 @@ public class GameManager : MonoBehaviour
     public TMPro.TextMeshProUGUI timerText;
     public TMPro.TextMeshProUGUI livesText;
     public TMPro.TextMeshProUGUI phaseText;
+    public TMPro.TextMeshProUGUI winText;
+    public TMPro.TextMeshProUGUI loseText;
+    public Button returnLobbyButton;
+    public Button playAgainButton;
 
     [Header("Audio Clips")]
     public AudioClip gameWinClip;
@@ -85,6 +91,10 @@ public class GameManager : MonoBehaviour
         {
             audioSource = gameObject.AddComponent<AudioSource>();
         }
+        winText.gameObject.SetActive(false);
+        loseText.gameObject.SetActive(false);
+        returnLobbyButton.gameObject.SetActive(false);
+        playAgainButton.gameObject.SetActive(false);
         InitializeGame();
     }
 
@@ -330,11 +340,29 @@ public class GameManager : MonoBehaviour
 
     void EndGame(bool won)
     {
+        isGameActive = false;
+        timerText.gameObject.SetActive(false);
+        livesText.gameObject.SetActive(false);
+        phaseText.gameObject.SetActive(false);
         PlaySound(won ? gameWinClip : gameLoseClip);
         if (won)
+        {
+            winText.gameObject.SetActive(true);
+            Scene currentScene = SceneManager.GetActiveScene();
+            string sceneName = currentScene.name;
+            CompleteLevel(sceneName);
             Debug.Log("You won!");
+        }
         else
+        {
+            loseText.gameObject.SetActive(true);
             Debug.Log("Game Over!");
+        }
+        returnLobbyButton.gameObject.SetActive(true);
+        playAgainButton.gameObject.SetActive(true);
+        returnLobbyButton.onClick.AddListener(GoToLobby);
+        playAgainButton.onClick.AddListener(RestartLevel);
+        //stopCharacter();
     }
 
     void PlaySound(AudioClip clip)
@@ -379,4 +407,20 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void GoToLobby()
+    {
+        SceneManager.LoadScene("Lobby");
+    }
+    public void CompleteLevel(string roomName)
+    {
+        PlayerPrefs.SetInt(roomName + "_completed", 1);
+        PlayerPrefs.Save();
+
+        Debug.Log($"Level {roomName} marked as completed!");
+    }
 }
