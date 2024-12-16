@@ -112,6 +112,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        Cat(); // call cat function
         if(!isGameActive) return;
 
         if (currentTimer > 0)
