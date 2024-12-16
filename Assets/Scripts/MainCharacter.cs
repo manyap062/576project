@@ -75,7 +75,7 @@ public class MainCharacter : MonoBehaviour {
             else if (animation_controller.GetBool("running") == true) {
                 Debug.Log("should be running");
                 velocity += 0.1f;
-                if (velocity > (max_velocity * 1.2f)) { velocity = (max_velocity * 1.2f); }
+                if (velocity > (max_velocity * 1.7f)) { velocity = (max_velocity * 1.7f); }
             }
 
             // Sneaking logic
