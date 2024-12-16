@@ -387,6 +387,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3645766741315178221, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_margin.x
+      value: -193.84946
+      objectReference: {fileID: 0}
     - target: {fileID: 4721230664529642666, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
       propertyPath: m_Name
       value: UI container
