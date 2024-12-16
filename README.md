@@ -13,3 +13,8 @@ Library Room:
 - https://assetstore.unity.com/packages/3d/environments/free-medieval-room-131004
 - https://assetstore.unity.com/packages/2d/textures-materials/wood/hand-painted-seamless-wood-texture-vol-6-162145
 - https://assetstore.unity.com/packages/3d/props/leathertrunk-295428
+
+Cat Treasure Room:
+- https://assetstore.unity.com/packages/3d/props/small-kit-3d-stylized-petshop-asset-291990
+- https://assetstore.unity.com/packages/3d/props/3d-props-chest-object-50741
+- I used some assets someone else uploaded for a different room but idk where the download link is
