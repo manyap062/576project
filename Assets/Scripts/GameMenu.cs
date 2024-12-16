@@ -5,41 +5,111 @@ using TMPro;
 public class MenuSystem : MonoBehaviour
 {
     [Header("Menu References")]
-    [SerializeField] private GameObject menu;
-    [SerializeField] private GameObject instructions;
+    [SerializeField] private GameObject menuPanel;
     [SerializeField] private Button menuButton;
-    [SerializeField] private Button resumeButton;
-    [SerializeField] private Button restartButton;
     [SerializeField] private Button instructionsButton;
+    [SerializeField] private Button restartButton;
+
+    [Header("Pause References")]
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private Button pauseButton;
+    [SerializeField] private Button resumeButton;
+    [SerializeField] private PauseScreen pauseScreenCat;  // Reference to cat script
+
+    [Header("Instructions References")]
+    [SerializeField] private GameObject instructionsPanel;
     [SerializeField] private Button exitInstructionsButton;
-    
-    [Header("Instructions Text")]
     [SerializeField] private TextMeshProUGUI instructionsText;
     
     [Header("Game References")]
     [SerializeField] private GameManager gameManager;
     
     private float previousTimeScale;
-    private bool wasInPreviewPhase;
+    private bool isPaused = false;
 
     void Start()
     {
-        menu.SetActive(false);
-        instructions.SetActive(false);
+        // initialize panels
+        menuPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        instructionsPanel.SetActive(false);
         
         menuButton.onClick.AddListener(ToggleMenu);
+        pauseButton.onClick.AddListener(TogglePause);
         resumeButton.onClick.AddListener(ResumeGame);
-        restartButton.onClick.AddListener(RestartGame);
         instructionsButton.onClick.AddListener(ShowInstructions);
+        restartButton.onClick.AddListener(RestartGame);
         exitInstructionsButton.onClick.AddListener(BackToMenu);
         
         SetupInstructionsText();
     }
 
+    private void ToggleMenu()
+    {
+        menuPanel.SetActive(!menuPanel.activeSelf);
+        
+        // if opening menu, pause game
+        if (menuPanel.activeSelf && !isPaused)
+            PauseGame();
+    }
+
+    private void TogglePause()
+    {
+        if (isPaused)
+            ResumeGame();
+        else
+            PauseGame();
+    }
+
+    private void PauseGame()
+    {
+        previousTimeScale = Time.timeScale;
+        Time.timeScale = 0f;
+        gameManager.isGameActive = false;
+        isPaused = true;
+        pausePanel.SetActive(true);
+        
+        // show cat hint when pausing
+        if (pauseScreenCat != null)
+            pauseScreenCat.ShowCatHint();
+    }
+
+    private void ResumeGame()
+    {
+        Time.timeScale = previousTimeScale;
+        gameManager.isGameActive = true;
+        isPaused = false;
+        menuPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        instructionsPanel.SetActive(false);
+    }
+
+    private void RestartGame()
+    {
+        Time.timeScale = 1f;
+        menuPanel.SetActive(false);
+        pausePanel.SetActive(false);
+        instructionsPanel.SetActive(false);
+        gameManager.InitializeGame();  // Make sure this exists in GameManager
+    }
+
+    private void ShowInstructions()
+    {
+        menuPanel.SetActive(false);
+        instructionsPanel.SetActive(true);
+    }
+
+    private void BackToMenu()
+    {
+        instructionsPanel.SetActive(false);
+        menuPanel.SetActive(true);
+    }
+
     private void SetupInstructionsText()
     {
-        instructionsText.text = "How to Play:\n\n" +
-            "!!!!insert movement controller info !!!!1. Preview Phase:\n" +
+        instructionsText.text = "add movement controls!!!!" + 
+            "How to Play:\n\n" +
+            "1. Preview Phase:\n" +
             $"   - You have {gameManager.previewDuration} seconds to memorize the room\n" +
             "   - Study all objects carefully\n\n" +
             "2. Find the Changes:\n" +
@@ -48,63 +118,5 @@ public class MenuSystem : MonoBehaviour
             "   - Click on objects you think have changed\n" +
             "   - Objects might change position, rotation, scale, material, or visibility\n" +
             "   - Pet Marty for hints, but be careful not to scare him! And be sure to avoid being caught by his owner!\n";
-    }
-
-    private void ToggleMenu()
-    {
-        if (menu.activeSelf)
-        {
-            ResumeGame();
-        }
-        else
-        {
-            PauseGame();
-        }
-    }
-
-    private void PauseGame()
-    {
-        previousTimeScale = Time.timeScale;
-        Time.timeScale = 0f;
-        wasInPreviewPhase = gameManager.isInPreviewPhase;
-        gameManager.isGameActive = false;
-        menu.SetActive(true);
-    }
-
-    private void ResumeGame()
-    {
-        Time.timeScale = previousTimeScale;
-        gameManager.isGameActive = true;
-        menu.SetActive(false);
-        instructions.SetActive(false);
-    }
-
-    private void RestartGame()
-    {
-        Time.timeScale = 1f;
-        menu.SetActive(false);
-        instructions.SetActive(false);
-        //gameManager.InitializeGame();
-    }
-
-    private void ShowInstructions()
-    {
-        menu.SetActive(false);
-        instructions.SetActive(true);
-    }
-
-    private void BackToMenu()
-    {
-        instructions.SetActive(false);
-        menu.SetActive(true);
-    }
-
-    void Update()
-    {
-        // can exit using esc key
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            ToggleMenu();
-        }
     }
 }

@@ -88,7 +88,7 @@ public class GameManager : MonoBehaviour
         InitializeGame();
     }
 
-    void InitializeGame()
+    public void InitializeGame()
     {
         currentLives = maxLives;
         isInPreviewPhase = true;
