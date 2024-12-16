@@ -10,10 +10,8 @@ public class MainCharacter : MonoBehaviour {
     public float max_velocity;
     public float velocity;
 
-    // Condition Boolean Values
-    public bool has_won;                // TODO: Value needs to be updated in game manager logic
-    public bool has_lost;               // TODO: Value needs to be updated in game manager logic
-    public bool recently_hit;           // TODO: Value needs to be updated in grandma logic
+    public bool has_lost;
+    public bool has_won;
 
     // Start
     void Start() {
@@ -25,7 +23,6 @@ public class MainCharacter : MonoBehaviour {
 
         has_won = false;
         has_lost = false;  
-        recently_hit = false; 
     }
 
     // Update
@@ -34,7 +31,6 @@ public class MainCharacter : MonoBehaviour {
         bool walking_backward = false;
         bool running = false;              
         bool sneaking = false;
-        bool petting = false;              // TODO: Implement later
 
         // Update booleans based on what keys have been pressed
 
