@@ -156,7 +156,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -92, y: 115}
+  m_AnchoredPosition: {x: -92, y: 99}
   m_SizeDelta: {x: 355.695, y: 158.757}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1757480
@@ -182,8 +182,8 @@ MonoBehaviour:
   m_text: Hey you! Can you help me solve memory puzzles to unlock my trophy room?
     I'll help you out where I can!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c98b200b40644f6d871675e66485977, type: 2}
+  m_sharedMaterial: {fileID: -1483769922602741981, guid: 0c98b200b40644f6d871675e66485977, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -207,8 +207,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 34
+  m_fontSizeBase: 34
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1048,8 +1048,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: How to play!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c98b200b40644f6d871675e66485977, type: 2}
+  m_sharedMaterial: {fileID: -1483769922602741981, guid: 0c98b200b40644f6d871675e66485977, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1182,8 +1182,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Enter the house!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 0c98b200b40644f6d871675e66485977, type: 2}
+  m_sharedMaterial: {fileID: -1483769922602741981, guid: 0c98b200b40644f6d871675e66485977, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
