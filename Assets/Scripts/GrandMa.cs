@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 public class GrandMa : MonoBehaviour
 {
     public NavMeshAgent granny;
@@ -22,4 +23,14 @@ public class GrandMa : MonoBehaviour
 
 
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "main_char")
+        {
+            SceneManager.LoadScene("Lose Screen");
+        }
+
+    }
+
 }
