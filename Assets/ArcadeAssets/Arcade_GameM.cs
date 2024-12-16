@@ -40,7 +40,9 @@ public class Arcade_GameM : MonoBehaviour
     public bool isGameActive = false;
     public ScreenFader screenFader;
 
-
+    public GameObject cat;
+    public UnityEngine.AI.NavMeshAgent cat_agent;
+    public bool cat_is_walking = false;
 
 
 
@@ -103,6 +105,8 @@ public class Arcade_GameM : MonoBehaviour
     {
         if (!isGameActive) return;
 
+        Cat();
+        
         if (currentTimer > 0)
         {
             currentTimer -= Time.deltaTime;
@@ -375,4 +379,26 @@ public class Arcade_GameM : MonoBehaviour
     {
         SceneManager.LoadScene("Lobby");
     }
+    void Cat()
+{
+    Vector3 target = new Vector3();
+    foreach (var change in activeChanges)
+    {
+        Debug.Log(change.changedObject.transform.position);
+        Debug.Log(cat.transform.position);
+        target = change.changedObject.transform.position;
+    }
+
+    cat_agent.SetDestination(target);
+    if (cat.transform.position != target)
+    {
+        cat_agent.SetDestination(target);
+        cat_is_walking = true;
+    }
+    else
+    {
+        cat_is_walking = false;
+    }
+
+}
 }
