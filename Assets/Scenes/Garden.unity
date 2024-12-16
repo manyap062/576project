@@ -1544,7 +1544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fa39be3d3ddb4ddb8129151d907581a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  previewDuration: 30
+  previewDuration: 10
   gameplayDuration: 120
   maxLives: 3
   numberOfChangesToMake: 5
@@ -1554,7 +1554,7 @@ MonoBehaviour:
     canRotate: 1
     canScale: 1
     canChangeMaterial: 1
-    canHide: 1
+    canHide: 0
     maxMoveDistance: {x: 5, y: 5, z: 5}
     maxRotation: {x: 90, y: 90, z: 90}
     maxScale: {x: 2, y: 2, z: 2}
@@ -1568,7 +1568,7 @@ MonoBehaviour:
     canRotate: 1
     canScale: 0
     canChangeMaterial: 1
-    canHide: 1
+    canHide: 0
     maxMoveDistance: {x: 5, y: 5, z: 5}
     maxRotation: {x: 0, y: 0, z: 0}
     maxScale: {x: 2, y: 2, z: 2}
@@ -1580,7 +1580,7 @@ MonoBehaviour:
     canRotate: 0
     canScale: 1
     canChangeMaterial: 1
-    canHide: 1
+    canHide: 0
     maxMoveDistance: {x: 5, y: 5, z: 5}
     maxRotation: {x: 0, y: 0, z: 0}
     maxScale: {x: 2, y: 2, z: 2}
@@ -1592,7 +1592,7 @@ MonoBehaviour:
     canRotate: 1
     canScale: 1
     canChangeMaterial: 0
-    canHide: 1
+    canHide: 0
     maxMoveDistance: {x: 5, y: 5, z: 5}
     maxRotation: {x: 0, y: 0, z: 0}
     maxScale: {x: 2, y: 2, z: 2}
@@ -1604,7 +1604,7 @@ MonoBehaviour:
     canRotate: 0
     canScale: 1
     canChangeMaterial: 0
-    canHide: 1
+    canHide: 0
     maxMoveDistance: {x: 5, y: 5, z: 5}
     maxRotation: {x: 0, y: 0, z: 0}
     maxScale: {x: 2, y: 2, z: 2}
