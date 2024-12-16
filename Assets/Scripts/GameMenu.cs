@@ -14,7 +14,7 @@ public class MenuSystem : MonoBehaviour
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private Button pauseButton;
     [SerializeField] private Button resumeButton;
-    [SerializeField] private PauseScreen pauseScreenCat;  // Reference to cat script
+    [SerializeField] private PauseScreen pauseScreen;  // Reference to cat script
 
     [Header("Instructions References")]
     [SerializeField] private GameObject instructionsPanel;
@@ -47,10 +47,16 @@ public class MenuSystem : MonoBehaviour
     private void ToggleMenu()
     {
         menuPanel.SetActive(!menuPanel.activeSelf);
+        instructionsPanel.SetActive(false);
         
         // if opening menu, pause game
         if (menuPanel.activeSelf && !isPaused)
-            PauseGame();
+        {
+            previousTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+            isPaused = true;
+            gameManager.isGameActive = false;
+        }
     }
 
     private void TogglePause()
@@ -70,8 +76,8 @@ public class MenuSystem : MonoBehaviour
         pausePanel.SetActive(true);
         
         // show cat hint when pausing
-        if (pauseScreenCat != null)
-            pauseScreenCat.ShowCatHint();
+        if (pauseScreen != null)
+            pauseScreen.ShowCatHint();
     }
 
     private void ResumeGame()

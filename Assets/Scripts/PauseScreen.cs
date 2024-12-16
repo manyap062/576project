@@ -1,14 +1,14 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 public class PauseScreen : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI hintText;
-    [SerializeField] private Sprite boxWithoutCat;  // first sprite
-    [SerializeField] private Sprite boxWithCat;     // second sprite
+    [Header("Box Sprites References")]
+    [SerializeField] private GameObject boxWithoutCatObject;  
+    [SerializeField] private GameObject boxWithCatObject;     
     
-    private Image boxImage;
+    [Header("Hint Text")]
+    [SerializeField] private TextMeshProUGUI hintText;
 
     private string[] catHints = new string[]
     {
@@ -23,23 +23,33 @@ public class PauseScreen : MonoBehaviour
 
     private void Start()
     {
-        boxImage = GetComponent<Image>();
-        boxImage.sprite = boxWithoutCat;
+        
+        ShowEmptyBox(); 
     }
 
     public void ShowCatHint()
     {
-        boxImage.sprite = boxWithCat;
+        ShowBoxWithCat();
 
-        // random hint
-        hintText.text = catHints[Random.Range(0, catHints.Length)];
+        //random hint text
+        string randomHint = catHints[Random.Range(0, catHints.Length)];
+        hintText.text = randomHint;
 
-        // switches back and forth
-        Invoke("HideCat", 5f); 
+        //switch back to empty box after 5 seconds
+        Invoke("ShowEmptyBox", 5f);
     }
 
-    private void HideCat()
+    private void ShowEmptyBox()
     {
-        boxImage.sprite = boxWithoutCat;
+        Debug.Log("Showing Empty Box");
+        boxWithoutCatObject.SetActive(true);
+        boxWithCatObject.SetActive(false);
+    }
+
+    private void ShowBoxWithCat()
+    {
+        Debug.Log("Showing Cat Box");
+        boxWithoutCatObject.SetActive(false);
+        boxWithCatObject.SetActive(true);
     }
 }
