@@ -377,7 +377,7 @@ public class GameManager : MonoBehaviour
 {
     foreach (var roomObj in roomObjects)
     {
-        if (roomObj.gameObject == obj)
+        if (roomObj.gameObject == obj && isGameActive)
             return true;
     }
     return false;
