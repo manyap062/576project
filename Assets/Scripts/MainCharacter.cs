@@ -32,47 +32,67 @@ public class MainCharacter : MonoBehaviour {
     void Update() {
         bool walking_forward = false;
         bool walking_backward = false;
-        bool sneaking_forward = false;     // TODO: Implement later
-        bool sneaking_backward = false;    // TODO: Implement later
-        bool running = false;              // TODO: Implement later
+        bool running = false;              
+        bool sneaking = false;
         bool petting = false;              // TODO: Implement later
 
-        // Update Boolean Values
-        if (Input.GetKey(KeyCode.W)) {
-            if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) { running = true; }
-            else if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) { sneaking_forward = true; }
-            else { walking_forward = true; }
-        }
+        // Update booleans based on what keys have been pressed
 
-        else if (Input.GetKey(KeyCode.S)) {
-            if (Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl)) { sneaking_backward = true; }
-            else { walking_backward = true; }
-        }
+        // Update Running bool
+        if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftShift)) { running = true; }
+
+        // Update Sneaking bool
+        else if (Input.GetKey(KeyCode.W) && Input.GetKey(KeyCode.LeftControl)) { sneaking = true; }
+
+        // Update Walking Forward bool
+        else if (Input.GetKey(KeyCode.W)) { walking_forward = true; }
+
+        // Update Walking Backward bool
+        else if (Input.GetKey(KeyCode.S)) { walking_backward = true; }
+        
 
         // Update Animation Controller
         animation_controller.SetBool("walking_forward", walking_forward);
         animation_controller.SetBool("walking_backward", walking_backward);
+        animation_controller.SetBool("running", running);
+        animation_controller.SetBool("sneaking", sneaking);
     
         // Update Movement Vector & Velocity
         if (has_lost == false && has_won == false) {
             
+            // Walking Forward logic
             if (animation_controller.GetBool("walking_forward") == true) {
                 velocity += 0.1f;
                 if (velocity > max_velocity) { velocity = max_velocity; }
             }
 
+            // Walking Backward logic
             else if (animation_controller.GetBool("walking_backward") == true) {
                 if (velocity > 0) { velocity = velocity * -1f; }
                 velocity -= 0.1f;
                 if (-velocity > (max_velocity / 1.5f)) { velocity = -(max_velocity / 1.5f); }
             }
 
+            // Running logic
+            else if (animation_controller.GetBool("running") == true) {
+                Debug.Log("should be running");
+                velocity += 0.1f;
+                if (velocity > (max_velocity * 1.2f)) { velocity = (max_velocity * 1.2f); }
+            }
+
+            // Sneaking logic
+            else if (animation_controller.GetBool("sneaking") == true) {
+                Debug.Log("should be sneaking");
+                velocity += 0.1f;
+                if (velocity > (max_velocity * 0.5f)) { velocity = (max_velocity * 0.5f); }
+            }
+
+            // Returning to idle logic
             else { 
-                if (velocity > 0.0f) { velocity -= 0.1f; }
+                if (velocity > 0.0f) { velocity -= 0.2f; }
                 else { velocity = 0.0f; } 
             }
             
-
             // Rotating Camera using A/D Keys
             if (Input.GetKey(KeyCode.A)) { transform.Rotate(new Vector3(0.0f, -0.5f, 0.0f)); }
             else if (Input.GetKey(KeyCode.D)) { transform.Rotate(new Vector3(0.0f, 0.5f, 0.0f)); }
