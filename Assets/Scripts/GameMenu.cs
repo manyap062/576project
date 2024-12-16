@@ -42,6 +42,8 @@ public class MenuSystem : MonoBehaviour
         exitInstructionsButton.onClick.AddListener(BackToMenu);
         
         SetupInstructionsText();
+
+        gameManager.InitializeGame();
     }
 
     private void ToggleMenu()
@@ -103,6 +105,15 @@ public class MenuSystem : MonoBehaviour
     {
         menuPanel.SetActive(false);
         instructionsPanel.SetActive(true);
+
+        // if opening instructions, pause game
+        if (instructionsPanel.activeSelf && !isPaused)
+        {
+            previousTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+            isPaused = true;
+            gameManager.isGameActive = false;
+        }
     }
 
     private void BackToMenu()
@@ -125,4 +136,30 @@ public class MenuSystem : MonoBehaviour
             "   - Objects might change position, rotation, scale, material, or visibility\n" +
             "   - Pet Marty for hints, but be careful not to scare him! And be sure to avoid being caught by his owner!\n";
     }
+
+    void Update()
+{
+    if (Input.GetKeyDown(KeyCode.Escape))
+    {
+        if (pausePanel.activeSelf)
+        {
+            TogglePause();
+        }
+        else if (menuPanel.activeSelf)
+        {
+            if (instructionsPanel.activeSelf)
+            {
+                BackToMenu();
+            }
+            else
+            {
+                ToggleMenu();
+            }
+        }
+        else
+        {
+            TogglePause();
+        }
+    }
+}
 }

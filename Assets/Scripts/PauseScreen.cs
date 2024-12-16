@@ -3,13 +3,8 @@ using TMPro;
 
 public class PauseScreen : MonoBehaviour
 {
-    [Header("Box Sprites References")]
-    [SerializeField] private GameObject boxWithoutCatObject;  
-    [SerializeField] private GameObject boxWithCatObject;     
-    
-    [Header("Hint Text")]
     [SerializeField] private TextMeshProUGUI hintText;
-
+    
     private string[] catHints = new string[]
     {
         "Meow! Try creating a story with the objects you see!",
@@ -21,35 +16,14 @@ public class PauseScreen : MonoBehaviour
         "Stay sharp! No distractions, just focus on my loot!"
     };
 
-    private void Start()
+    void Start()
     {
-        
-        ShowEmptyBox(); 
+        ShowCatHint();
     }
 
     public void ShowCatHint()
     {
-        ShowBoxWithCat();
-
-        //random hint text
         string randomHint = catHints[Random.Range(0, catHints.Length)];
         hintText.text = randomHint;
-
-        //switch back to empty box after 5 seconds
-        Invoke("ShowEmptyBox", 5f);
-    }
-
-    private void ShowEmptyBox()
-    {
-        Debug.Log("Showing Empty Box");
-        boxWithoutCatObject.SetActive(true);
-        boxWithCatObject.SetActive(false);
-    }
-
-    private void ShowBoxWithCat()
-    {
-        Debug.Log("Showing Cat Box");
-        boxWithoutCatObject.SetActive(false);
-        boxWithCatObject.SetActive(true);
     }
 }
