@@ -8544,6 +8544,8 @@ MonoBehaviour:
   levelDoors:
   - levelName: Arcade
     doorLight: {fileID: 236992936}
+  - levelName: Library
+    doorLight: {fileID: 650148589}
   finalDoor:
     levelName: Treasure Room
     doorLight: {fileID: 1247907976}
