@@ -12,6 +12,7 @@ public class MainCharacter : MonoBehaviour {
 
     public bool has_lost;
     public bool has_won;
+    private float groundLevel; // The y-coordinate of the ground level
 
     // Start
     void Start() {
@@ -22,7 +23,8 @@ public class MainCharacter : MonoBehaviour {
         velocity = 0.0f;
 
         has_won = false;
-        has_lost = false;  
+        has_lost = false;
+        groundLevel = transform.position.y;
     }
 
     // Update
@@ -100,6 +102,12 @@ public class MainCharacter : MonoBehaviour {
         float zdirection = Mathf.Cos(Mathf.Deg2Rad * transform.rotation.eulerAngles.y);
         movement_direction = new Vector3(xdirection, 0.0f, zdirection);
         character_controller.Move(movement_direction * velocity * Time.deltaTime);
+
+
+        // Force character to stay on the ground
+        //Vector3 position = transform.position;
+        //position.y = groundLevel; // Reset y-position to ground level
+        //transform.position = position;
         /*
         if (transform.position.y > 0.0f) { 
             Vector3 lower_character = movement_direction * velocity * Time.deltaTime;
