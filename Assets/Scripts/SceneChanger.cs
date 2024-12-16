@@ -26,7 +26,7 @@ public class SceneChanger : MonoBehaviour
         
         if (collision.gameObject.name == "main_char") // Check object name
         {
-            bool isLevelUnlocked = PlayerPrefs.GetInt(scene_to_load + "_unlocked", 0) == 1; 
+            bool isLevelUnlocked = PlayerPrefs.GetInt(scene_to_load + "_unlocked") == 1; 
             if (isLevelUnlocked)
             {
                 Debug.Log($"Loading scene: {scene_to_load}");

@@ -38,7 +38,14 @@ public class LobbyManager : MonoBehaviour
 
     void Start()
     {
-        InitializeFirstLevel();
+        if (PlayerPrefs.GetInt(firstLevelName + "_unlocked") == 0)
+        {
+            Debug.Log(firstLevelName + "should be unlocked");
+            PlayerPrefs.SetInt(firstLevelName + "_unlocked", 1); // Unlock Level 1
+            PlayerPrefs.SetInt(firstLevelName + "_completed", 0); // Ensure it's not marked as completed
+            PlayerPrefs.Save();
+            Debug.Log(firstLevelName + " " + PlayerPrefs.GetInt(firstLevelName + "_unlocked"));
+        }
 
         bool unlockNextLevel = false;
 
@@ -47,8 +54,11 @@ public class LobbyManager : MonoBehaviour
         {
 
             string levelName = levelDoor.levelName;
-            bool isUnlocked = PlayerPrefs.GetInt(levelName + "_unlocked", 0) == 1;
-            bool isCompleted = PlayerPrefs.GetInt(levelName + "_completed", 0) == 1;
+            bool isUnlocked = PlayerPrefs.GetInt(levelName + "_unlocked") == 1;
+            bool isCompleted = PlayerPrefs.GetInt(levelName + "_completed") == 1;
+            if(levelName == "Astronomy Room"){
+                Debug.Log(levelName + " " + PlayerPrefs.GetInt(firstLevelName + "_unlocked"));
+            }
 
             if (isUnlocked)
             {
@@ -61,6 +71,7 @@ public class LobbyManager : MonoBehaviour
             else if (unlockNextLevel)
             {
                 // Unlock this level and update the light to green
+                Debug.Log(levelName + " is unlocked");
                 PlayerPrefs.SetInt(levelName + "_unlocked", 1);
                 PlayerPrefs.Save();
 
@@ -98,11 +109,14 @@ public class LobbyManager : MonoBehaviour
     private void InitializeFirstLevel()
     {
         // Ensure the first level is always unlocked but not completed
-        if (PlayerPrefs.GetInt(firstLevelName + "_unlocked", 0) == 0)
+        //Debug.Log(PlayerPrefs.GetInt(firstLevelName + "_unlocked", 0));
+        if (PlayerPrefs.GetInt(firstLevelName + "_unlocked") == 0)
         {
+            Debug.Log(firstLevelName + "should be unlocked");
             PlayerPrefs.SetInt(firstLevelName + "_unlocked", 1); // Unlock Level 1
             PlayerPrefs.SetInt(firstLevelName + "_completed", 0); // Ensure it's not marked as completed
             PlayerPrefs.Save();
+            Debug.Log(firstLevelName + " " + PlayerPrefs.GetInt(firstLevelName + "_unlocked"));
         }
     }
 

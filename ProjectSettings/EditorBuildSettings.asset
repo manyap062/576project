@@ -24,7 +24,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Garden.unity
     guid: cd8fdfbe3fdf9f748b10bc21f0e0d360
   - enabled: 1
-    path: Assets/Scenes/Astronomy Room.unity
+    path: Assets/Scenes/Astronomy.unity
     guid: 0e90bc1b1d6ddbc46859d46f8543e786
   - enabled: 1
     path: Assets/Scenes/Library.unity

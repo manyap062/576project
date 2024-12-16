@@ -934,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f98bdc608da21b4bb6ba0672df0a782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scene_to_load: Astronomy Room
+  scene_to_load: Astronomy
 --- !u!65 &184308369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -981,7 +981,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1001 &184732343
 PrefabInstance:
@@ -2889,7 +2889,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 101.413
+      value: 118.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3022,7 +3022,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!114 &625322458
 MonoBehaviour:
@@ -3570,7 +3570,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &703761313
 GameObject:
@@ -4029,7 +4029,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1 &809960319 stripped
 GameObject:
@@ -4095,7 +4095,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1001 &817736978
 PrefabInstance:
@@ -4702,7 +4702,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!1001 &1036953322
 PrefabInstance:
@@ -5013,7 +5013,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 105.697
+      value: 110.06
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5485,7 +5485,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 110.062
+      value: 114.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5690,6 +5690,38 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 341695630880590786, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341695630880590786, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341695630880590786, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 341695630880590786, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338326289093642405, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338326289093642405, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338326289093642405, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2338326289093642405, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4721230664529642666, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
       propertyPath: m_Name
       value: UI container
@@ -5732,6 +5764,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6477770419885910429, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7290863105121139013, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7290863105121139013, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7290863105121139013, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7290863105121139013, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8100,7 +8148,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 114.402
+      value: 105.7
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8213,7 +8261,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 118.7
+      value: 101.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8be64b928cc778443b27b92d34fea94e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -8599,17 +8647,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelDoors:
-  - levelName: Arcade
-    doorLight: {fileID: 236992936}
+  - levelName: Astronomy
+    doorLight: {fileID: 1622172186}
   - levelName: Library
+    doorLight: {fileID: 236992936}
+  - levelName: Arcade
+    doorLight: {fileID: 1049369898}
+  - levelName: Garden
     doorLight: {fileID: 650148589}
+  - levelName: Attic
+    doorLight: {fileID: 1157852299}
   finalDoor:
     levelName: Treasure Room
     doorLight: {fileID: 1247907976}
   unlockedColor: {r: 0, g: 1, b: 0, a: 1}
   lockedColor: {r: 1, g: 0, b: 0, a: 1}
   finalDoorUnlockedColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
-  firstLevelName: Arcade
+  firstLevelName: Astronomy
 --- !u!4 &2048567336
 Transform:
   m_ObjectHideFlags: 0

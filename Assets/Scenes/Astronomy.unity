@@ -268,7 +268,7 @@ MonoBehaviour:
     maxRotation: {x: 0, y: 360, z: 0}
     maxScale: {x: 3, y: 3, z: 3}
     possibleMaterials:
-    - {fileID: 2100000, guid: 636dca6c3363548baafe8678b42938c9, type: 2}
+    - {fileID: 2100000, guid: ae05a216b935ee6428ef95995dc2e2c8, type: 2}
     - {fileID: 2100000, guid: fed4191d0f89b4b7e96d127f0b8bb7df, type: 2}
   - gameObject: {fileID: 784626444}
     canRotate: 0
