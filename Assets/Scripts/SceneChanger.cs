@@ -12,6 +12,11 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
+    public void LoadIntro()
+    {
+        SceneManager.LoadScene("Intro");
+    }
+
     void OnCollisionEnter(Collision collision)
     {
         
