@@ -97,7 +97,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 583471fb5b1e86a428170d0e202cacf6, type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -8524,6 +8524,24 @@ MonoBehaviour:
     possibleMaterials:
     - {fileID: 2100000, guid: 3972e7818690dc646822a88713f10205, type: 2}
     - {fileID: 2100000, guid: 824b8e7785591b74c89a230af85b5f77, type: 2}
+  - gameObject: {fileID: 214653344}
+    canRotate: 0
+    canScale: 1
+    canChangeMaterial: 1
+    maxRotation: {x: 0, y: 360, z: 0}
+    maxScale: {x: 3, y: 3, z: 3}
+    possibleMaterials:
+    - {fileID: 2100000, guid: 3972e7818690dc646822a88713f10205, type: 2}
+    - {fileID: 2100000, guid: 824b8e7785591b74c89a230af85b5f77, type: 2}
+  - gameObject: {fileID: 1076773}
+    canRotate: 0
+    canScale: 1
+    canChangeMaterial: 1
+    maxRotation: {x: 0, y: 360, z: 0}
+    maxScale: {x: 3, y: 3, z: 3}
+    possibleMaterials:
+    - {fileID: 2100000, guid: 3972e7818690dc646822a88713f10205, type: 2}
+    - {fileID: 2100000, guid: 824b8e7785591b74c89a230af85b5f77, type: 2}
   timerText: {fileID: 822457448}
   livesText: {fileID: 2131891849}
   phaseText: {fileID: 832407833}
@@ -9961,9 +9979,8 @@ MonoBehaviour:
   movement_direction: {x: 0, y: 0, z: 0}
   max_velocity: 0
   velocity: 0
-  has_won: 0
   has_lost: 0
-  recently_hit: 0
+  has_won: 0
 --- !u!95 &1829233929
 Animator:
   serializedVersion: 5
