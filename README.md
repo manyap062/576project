@@ -28,3 +28,7 @@ Attic Room:
 - https://assetstore.unity.com/packages/3d/props/interior/free-house-interior-223416
 - https://assetstore.unity.com/packages/3d/props/interior/hotel-room-collection-214335
 
+Astronomy Room:
+- https://assetstore.unity.com/packages/3d/environments/planets-of-the-solar-system-3d-90219
+- https://assetstore.unity.com/packages/2d/textures-materials/sky/urban-night-sky-134468
+
