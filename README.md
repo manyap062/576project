@@ -1,4 +1,6 @@
 # 576project
+Group contributions: https://github.com/manyap062/576project/commits/12/7-Hope-this-one-works
+
 install
 garden room:
 - https://assetstore.unity.com/packages/3d/props/industrial/hd-glass-pack-95520
