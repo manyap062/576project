@@ -118,13 +118,16 @@ public class MenuSystem_Arcade : MonoBehaviour
 
     private void SetupInstructionsText()
     {
-        instructionsText.text = "Welcome to the Arcade Game!" + 
-            "\n\nHow to Play:\n" +
+        instructionsText.text = "W for forward, S for backward, W & left shift to run, W & left control to sneak." +
             "1. Preview Phase:\n" +
             $"   - You have {gameManager.previewDuration} seconds to memorize the room\n" +
-            "2. Gameplay Phase:\n" +
-            $"   - Spot {gameManager.numberOfChangesToMake} changes within {gameManager.gameplayDuration} seconds\n" +
-            $"   - You have {gameManager.maxLives} lives. Good luck!";
+            "   - Study all objects carefully\n\n" +
+            "2. Find the Changes:\n" +
+            $"   - You have {gameManager.gameplayDuration} seconds to spot {gameManager.numberOfChangesToMake} changes\n" +
+            $"   - You have {gameManager.maxLives} lives\n" +
+            "   - Click on objects you think have changed\n" +
+            "   - Objects might change position, rotation, scale, material, or visibility\n" +
+            "   - Press h for hints! And be sure to avoid being caught by Marty's owner!\n"
     }
 
     void Update()

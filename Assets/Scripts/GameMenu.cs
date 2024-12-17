@@ -124,8 +124,9 @@ public class MenuSystem : MonoBehaviour
 
     private void SetupInstructionsText()
     {
-        instructionsText.text = "add movement controls!!!!" + 
+        instructionsText.text = 
             "How to Play:\n\n" +
+            "W for forward, S for backward, W & left shift to run, W & left control to sneak." +
             "1. Preview Phase:\n" +
             $"   - You have {gameManager.previewDuration} seconds to memorize the room\n" +
             "   - Study all objects carefully\n\n" +
@@ -134,7 +135,7 @@ public class MenuSystem : MonoBehaviour
             $"   - You have {gameManager.maxLives} lives\n" +
             "   - Click on objects you think have changed\n" +
             "   - Objects might change position, rotation, scale, material, or visibility\n" +
-            "   - Pet Marty for hints, but be careful not to scare him! And be sure to avoid being caught by his owner!\n";
+            "   - Press h for hints! And be sure to avoid being caught by Marty's owner!\n";
     }
 
     void Update()
