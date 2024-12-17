@@ -320,6 +320,7 @@ MonoBehaviour:
   phaseText: {fileID: 125781277}
   winText: {fileID: 189483596}
   loseText: {fileID: 728820620}
+  progressText: {fileID: 623740856}
   returnLobbyButton: {fileID: 960703252}
   playAgainButton: {fileID: 1221803780}
   gameWinClip: {fileID: 8300000, guid: db14e2acd27a3634ab76f47cdd06e0f1, type: 3}
@@ -1395,6 +1396,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 277a4092b6ae84cc6970d7a21ac55f7f, type: 3}
+--- !u!114 &623740856 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8828099692965366808, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+  m_PrefabInstance: {fileID: 125781264}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &636909957
 PrefabInstance:
   m_ObjectHideFlags: 0
