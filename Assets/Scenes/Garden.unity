@@ -1061,18 +1061,10 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4721230664529642666, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1866445132}
     - targetCorrespondingSourceObject: {fileID: 2687181677463520424, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 321689143}
   m_SourcePrefab: {fileID: 100100000, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
---- !u!1 &321689131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4721230664529642666, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
-  m_PrefabInstance: {fileID: 321689130}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &321689132 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1372373308693670925, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
@@ -1192,7 +1184,7 @@ MonoBehaviour:
   instructionsPanel: {fileID: 321689134}
   exitInstructionsButton: {fileID: 321689132}
   instructionsText: {fileID: 321689133}
-  gameManager: {fileID: 0}
+  gameManager: {fileID: 1005572905}
 --- !u!1 &372373165
 GameObject:
   m_ObjectHideFlags: 0
@@ -2579,6 +2571,9 @@ MonoBehaviour:
   isInPreviewPhase: 1
   isGameActive: 0
   screenFader: {fileID: 1810608793}
+  cat: {fileID: 813219522}
+  cat_agent: {fileID: 813219523}
+  cat_is_walking: 0
 --- !u!4 &1005572906
 Transform:
   m_ObjectHideFlags: 0
@@ -2849,6 +2844,10 @@ PrefabInstance:
     - target: {fileID: 4213375065579253110, guid: 9654f2e594eca4347b152fcdf5810dc1, type: 3}
       propertyPath: m_Name
       value: win/lose canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 4213375065579253110, guid: 9654f2e594eca4347b152fcdf5810dc1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8356919678756768039, guid: 9654f2e594eca4347b152fcdf5810dc1, type: 3}
       propertyPath: m_Pivot.x
@@ -3595,29 +3594,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1936f238e71db4531bfe8d26742e2d98, type: 3}
---- !u!114 &1866445132
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 321689131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3664d75ac35c34577b1e23559f6b3f91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  menuPanel: {fileID: 0}
-  menuButton: {fileID: 0}
-  instructionsButton: {fileID: 0}
-  restartButton: {fileID: 0}
-  pausePanel: {fileID: 0}
-  pauseButton: {fileID: 0}
-  resumeButton: {fileID: 0}
-  instructionsPanel: {fileID: 0}
-  exitInstructionsButton: {fileID: 0}
-  instructionsText: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!1001 &1912141009
 PrefabInstance:
   m_ObjectHideFlags: 0
