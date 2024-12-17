@@ -231,7 +231,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 4, y: 20}
+  m_AnchoredPosition: {x: 7, y: 75}
   m_SizeDelta: {x: 514.521, y: 267.2838}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &952956663
@@ -254,11 +254,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: After you enter my house, there are 5 levels to complete. For each level
-    you will have 10 seconds to memorize the objects in the room before things get
-    scrambled. You then must click on each item that changed. Successfully completing
-    a level will unlock another level. Complete all 5 levels to unlock my trophy
-    room!
+  m_text: "1. There are five rooms to explore. For each level you will have a few
+    seconds to memorize the objects in the room before things get scrambled. \n2.
+    You then must click on each item that changed before time runs out. If you can,
+    you unlock a harder room, where you'll have less time to find the changed objets.
+    Complete all 5 levels to unlock my prized trophy room!\n3. If you get stuck,
+    click on me for a hint!\n4. Pause to learn strategies to improve your memory.
+    You can access the instructions or restart the level from the menu. Good luck!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c98b200b40644f6d871675e66485977, type: 2}
   m_sharedMaterial: {fileID: -1483769922602741981, guid: 0c98b200b40644f6d871675e66485977, type: 2}
@@ -285,8 +287,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 24.5
+  m_fontSizeBase: 24.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -321,7 +323,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -26.750336, z: 0, w: 0}
+  m_margin: {x: -117.22409, y: -26.750336, z: -90.89526, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
