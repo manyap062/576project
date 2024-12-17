@@ -30,3 +30,6 @@ Attic Room:
 - https://assetstore.unity.com/packages/3d/props/interior/free-house-interior-223416
 - https://assetstore.unity.com/packages/3d/props/interior/hotel-room-collection-214335
 
+Arcade Room:
+- https://kenney.nl/assets/mini-arcade
+
