@@ -905,6 +905,7 @@ MonoBehaviour:
   phaseText: {fileID: 1569767728}
   winText: {fileID: 1365020837}
   loseText: {fileID: 1200269573}
+  progressText: {fileID: 915791440}
   returnLobbyButton: {fileID: 1868506092}
   playAgainButton: {fileID: 635955192}
   gameWinClip: {fileID: 8300000, guid: db14e2acd27a3634ab76f47cdd06e0f1, type: 3}
@@ -2310,6 +2311,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1953379602}
   m_SourcePrefab: {fileID: 100100000, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+--- !u!114 &915791440 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8828099692965366808, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+  m_PrefabInstance: {fileID: 915791439}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &925936571
 PrefabInstance:
   m_ObjectHideFlags: 0

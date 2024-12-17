@@ -8952,6 +8952,7 @@ MonoBehaviour:
   phaseText: {fileID: 515645214}
   winText: {fileID: 138673032}
   loseText: {fileID: 522744540}
+  progressText: {fileID: 1791924646}
   returnLobbyButton: {fileID: 1490678946}
   playAgainButton: {fileID: 924946668}
   gameWinClip: {fileID: 8300000, guid: db14e2acd27a3634ab76f47cdd06e0f1, type: 3}
@@ -9410,6 +9411,17 @@ Transform:
   - {fileID: 88564126}
   m_Father: {fileID: 1965726625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1791924646 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8828099692965366808, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+  m_PrefabInstance: {fileID: 515645202}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1805051375
 GameObject:
   m_ObjectHideFlags: 0

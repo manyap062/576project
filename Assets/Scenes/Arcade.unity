@@ -1390,6 +1390,17 @@ MonoBehaviour:
   precomputeOutline: 0
   bakeKeys: []
   bakeValues: []
+--- !u!114 &365532140 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8828099692965366808, guid: 7ec3b91e4bd22499488459955d96add2, type: 3}
+  m_PrefabInstance: {fileID: 505090726}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &387661259
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8818,6 +8829,7 @@ MonoBehaviour:
   phaseText: {fileID: 1098470695}
   winText: {fileID: 1906528351}
   loseText: {fileID: 1687724312}
+  progressText: {fileID: 365532140}
   returnLobbyButton: {fileID: 749150512}
   playAgainButton: {fileID: 1639205973}
   gameWinClip: {fileID: 8300000, guid: db14e2acd27a3634ab76f47cdd06e0f1, type: 3}
@@ -8827,6 +8839,9 @@ MonoBehaviour:
   isInPreviewPhase: 1
   isGameActive: 0
   screenFader: {fileID: 1230038439}
+  cat: {fileID: 0}
+  cat_agent: {fileID: 0}
+  cat_is_walking: 0
 --- !u!4 &1611509538
 Transform:
   m_ObjectHideFlags: 0
