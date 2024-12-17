@@ -33,3 +33,7 @@ Attic Room:
 Arcade Room:
 - https://kenney.nl/assets/mini-arcade
 
+Astronomy Room:
+- https://assetstore.unity.com/packages/3d/environments/planets-of-the-solar-system-3d-90219
+- https://assetstore.unity.com/packages/2d/textures-materials/sky/urban-night-sky-134468
+
