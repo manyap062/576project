@@ -17,7 +17,6 @@ Library Room:
 Cat Treasure Room:
 - https://assetstore.unity.com/packages/3d/props/small-kit-3d-stylized-petshop-asset-291990
 - https://assetstore.unity.com/packages/3d/props/3d-props-chest-object-50741
-- I used some assets someone else uploaded for a different room but idk where the download link is
 
 Charachters:
 - https://assetstore.unity.com/packages/3d/characters/animals/lowpoly-toon-cat-lite-66083
