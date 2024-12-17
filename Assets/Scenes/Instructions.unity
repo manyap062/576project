@@ -259,8 +259,9 @@ MonoBehaviour:
     You then must click on each item that changed before time runs out. If you can,
     you unlock a harder room, where you'll have less time to find the changed objets.
     Complete all 5 levels to unlock my prized trophy room!\n3. If you get stuck,
-    look on me for a hint!\n4. Pause to learn strategies to improve your memory.
-    You can access the instructions or restart the level from the menu. Good luck!"
+    press h and I'll give you a hint!\n4. Pause to learn strategies to improve your
+    memory. You can access the instructions or restart the level from the menu. Good
+    luck!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0c98b200b40644f6d871675e66485977, type: 2}
   m_sharedMaterial: {fileID: -1483769922602741981, guid: 0c98b200b40644f6d871675e66485977, type: 2}
