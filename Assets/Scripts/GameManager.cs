@@ -224,9 +224,12 @@ public class GameManager : MonoBehaviour
 
             case ChangeType.Rotation:
                 Vector3 newRotation = new Vector3(
-                    Random.Range(-roomObject.maxRotation.x, roomObject.maxRotation.x),
-                    Random.Range(-roomObject.maxRotation.y, roomObject.maxRotation.y),
-                    Random.Range(-roomObject.maxRotation.z, roomObject.maxRotation.z)
+                    //Random.Range(-roomObject.maxRotation.x, roomObject.maxRotation.x),
+                    //Random.Range(-roomObject.maxRotation.y, roomObject.maxRotation.y),
+                    //Random.Range(-roomObject.maxRotation.z, roomObject.maxRotation.z)
+                    0,
+                    Random.Range(-25, 25f),
+                    0
                 );
                 change.originalValue = roomObject.gameObject.transform.rotation;
                 change.newValue = Quaternion.Euler(newRotation);
@@ -234,10 +237,20 @@ public class GameManager : MonoBehaviour
                 break;
 
             case ChangeType.Scale:
+                float scaleChange = Random.Range(-0.25f, 0.25f); // Used for uniform scaling
                 Vector3 newScale = roomObject.gameObject.transform.localScale + new Vector3(
-                    Random.Range(-roomObject.maxScale.x, roomObject.maxScale.x),
-                    Random.Range(-roomObject.maxScale.y, roomObject.maxScale.y),
-                    Random.Range(-roomObject.maxScale.z, roomObject.maxScale.z)
+                    scaleChange,
+                    scaleChange,
+                    scaleChange
+                /*
+                //Vector3 newScale = roomObject.gameObject.transform.localScale + new Vector3(
+                    //Random.Range(-roomObject.maxScale.x, roomObject.maxScale.x),
+                    //Random.Range(-roomObject.maxScale.y, roomObject.maxScale.y),
+                    //Random.Range(-roomObject.maxScale.z, roomObject.maxScale.z)
+                    Random.Range(-1.8f, 1.8f),
+                    Random.Range(-1.8f, 1.8f),
+                    Random.Range(-1.8f, 1.8f)
+                */
                 );
                 change.originalValue = roomObject.gameObject.transform.localScale;
                 change.newValue = newScale;
