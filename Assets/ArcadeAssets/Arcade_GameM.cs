@@ -105,7 +105,7 @@ public class Arcade_GameM : MonoBehaviour
     {
         if (!isGameActive) return;
 
-        Cat();
+        if (Input.GetKey(KeyCode.H)) { Cat(); } // call cat function
         
         if (currentTimer > 0)
         {

@@ -112,7 +112,8 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        Cat(); // call cat function
+        if (Input.GetKey(KeyCode.H)) { Cat(); } // call cat function
+        
         if(!isGameActive) return;
 
         if (currentTimer > 0)
