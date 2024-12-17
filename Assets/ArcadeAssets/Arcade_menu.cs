@@ -127,7 +127,7 @@ public class MenuSystem_Arcade : MonoBehaviour
             $"   - You have {gameManager.maxLives} lives\n" +
             "   - Click on objects you think have changed\n" +
             "   - Objects might change position, rotation, scale, material, or visibility\n" +
-            "   - Press h for hints! And be sure to avoid being caught by Marty's owner!\n"
+            "   - Press h for hints! And be sure to avoid being caught by Marty's owner!\n";
     }
 
     void Update()
