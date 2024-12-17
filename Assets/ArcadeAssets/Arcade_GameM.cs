@@ -21,6 +21,7 @@ public class Arcade_GameM : MonoBehaviour
     public TMPro.TextMeshProUGUI phaseText;
     public TMPro.TextMeshProUGUI winText;
     public TMPro.TextMeshProUGUI loseText;
+    public TMPro.TextMeshProUGUI progressText;
     public Button returnLobbyButton;
     public Button playAgainButton;
 
@@ -133,6 +134,7 @@ public class Arcade_GameM : MonoBehaviour
         if (timerText) timerText.text = $"Time: {Mathf.CeilToInt(currentTimer)}";
         if (livesText) livesText.text = $"Lives Left: {currentLives}";
         if (phaseText) phaseText.text = isInPreviewPhase ? "Memorize the Room!" : "Find the Changes!";
+         if (progressText) progressText.text = $"Found: {changesFound}/{numberOfChangesToMake}";
     }
 
     IEnumerator StartGameplayPhaseCoroutine()
@@ -304,6 +306,7 @@ public class Arcade_GameM : MonoBehaviour
         timerText.gameObject.SetActive(false);
         livesText.gameObject.SetActive(false);
         phaseText.gameObject.SetActive(false);
+        progressText.gameObject.SetActive(false);
         PlaySound(won ? gameWinClip : gameLoseClip);
         if (won)
         {
